@@ -1,15 +1,61 @@
-".container": {
-	backgroundColor:"white"
+
+"#change":{
+    top:0,
+	height:"92%",
+	width: Ti.UI.FILL,
 }
 
 "Label": {
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-	color: "#000"
+  color: '#ffffff',
+  font: { fontSize:15 },
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  width: Ti.UI.SIZE, height: Ti.UI.SIZE	
 }
 
-"#label": {
-	font: {
-		fontSize: 12
-	}
+"ImageView": {
+	top:"2",
+	height:"60%"	
 }
+
+"#btn":{
+    bottom: 0,
+    height: "8%",
+	layout: "absolute",
+    backgroundColor: "#0099ff"
+}
+
+".btnClass": {
+    width: Ti.UI.SIZE,
+    height: Ti.UI.FILL,
+    touchEnabled :true,
+    touchFeedback :true,
+    touchFeedbackColor:"#000000",
+    elevation:12,
+	layout: "vertical",
+} 
+
+"#btn1":{
+	left:"17%",
+}
+
+"#btn3":{
+	right:"17%",
+}
+
+"#image1": {
+	image: "/bottom/creativity2.png"
+}
+
+"#image2": {
+	image: "/bottom/tablet1.png"
+}
+
+"#image3": {
+	image: "/bottom/modeling1.png"
+}
+
+
+
+
+
+

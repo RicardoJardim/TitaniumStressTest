@@ -1,5 +1,20 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+	<Window class="index">
+		<View id="change" />
+		<View id="btn">
+			<View class="btnClass" id="btn1" onClick="doClick1">
+				<ImageView id="image1"/>
+				<Label id="label1"  >btn1</Label>
+			</View>
+			<View class="btnClass" id="btn2" onClick="doClick2" >
+				<ImageView id="image2"/>
+				<Label id="label2" color= '#000000'>btn2</Label>
+			</View>
+			<View class="btnClass" id="btn3" onClick="doClick3">
+				<ImageView id="image3"/>
+				<Label id="label3" color= '#000000'>btn3</Label>
+			</View>
+		</View>	
 	</Window>
+	
 </Alloy>
