@@ -1,4 +1,6 @@
 <Alloy>
 	<View id="cpu">
+		<Label id="label">Result = 0</Label>
+		<Button id="start" onClick="executeCPU">START</Button>
 	</View>
 </Alloy>

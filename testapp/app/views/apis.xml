@@ -1,4 +1,9 @@
 <Alloy>
 	<View id="apis">
+		<Button id="camera" onClick="getCamera">Camera</Button>
+		<Button id="gallery" onClick="getGallery">Gallery</Button>
+		<Button id="gps" onClick="getGPS">GPS</Button>
+		<Button id="calendar" onClick="getCalendar">Calendar</Button>
+		<Button id="contacts" onClick="getContacts">Contacts</Button>
 	</View>
 </Alloy>

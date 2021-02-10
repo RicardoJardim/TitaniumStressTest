@@ -1,4 +1,12 @@
 
 "#apis" : {
-  backgroundColor: "green"
+  backgroundColor: "green",
+  layout: "vertical"
+}
+
+"Button": {
+  backgroundColor: "#0099ff",
+  width:"60%"	,
+    font: { fontSize:20},
+  top:"5%"
 }

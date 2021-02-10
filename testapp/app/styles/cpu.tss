@@ -1,4 +1,20 @@
 
 "#cpu" : {
-  backgroundColor: "yellow"
+  backgroundColor: "yellow",
+  layout: "vertical"
+}
+
+"#label": {
+  color: '#000000',
+  font: { fontSize:26 },
+  textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+  width: Ti.UI.SIZE, height: Ti.UI.SIZE	,
+  top:"45%"
+}
+
+"#start": {
+  backgroundColor: "#0099ff",
+  width:"60%"	,
+    font: { fontSize:20},
+top:"10%"
 }

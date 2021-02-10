@@ -1,24 +1,14 @@
 // POST
 const alerted = require("alert");
 
-exports.post = function (url, data, callback, progress) {
+exports.post = function (url, data, callback) {
   // setup
   var postURL = Ti.App.Properties.getString("serverUrl") + url;
-
-  var user_data = Ti.App.Properties.getObject("data");
-  console.log("---------------------------");
-  console.log("-- POST - START");
-  console.log("-- POST - URL: " + postURL);
 
   // online
   if (Titanium.Network.online) {
     var xhr = Ti.Network.createHTTPClient({
       onload: function (e) {
-        // debug
-        console.log("-- POST - " + url + " - START");
-        console.log("-- POST - " + url + " - STATUS: " + this.status);
-        console.log("-- POST - " + url + " - TEXT:   " + this.responseText);
-
         // status ok
         if (this.status == "200" || this.status == "201") {
           if (checkJSON(this.responseText)) {
@@ -27,12 +17,8 @@ exports.post = function (url, data, callback, progress) {
             handleError(e, url, this.status, this.responseText);
           }
         }
-        console.log("-- POST - " + url + " - END");
       },
       onerror: function (e) {
-        console.log(this.responseText);
-        console.log("-- POST - " + url + " - STATUS: " + this.status);
-
         if (checkJSON(this.responseText)) {
           callback(JSON.parse(this.responseText));
         } else {
@@ -48,11 +34,6 @@ exports.post = function (url, data, callback, progress) {
     }
     xhr.open("POST", postURL);
     xhr.setRequestHeader("Connection", "close");
-
-    if (Ti.App.Properties.hasProperty("data")) {
-      console.log("-- TOKEN : " + user_data["token"]);
-      xhr.setRequestHeader("Authorization", user_data["token"]);
-    }
     xhr.send(data);
   } else {
     alerted.note("You are offline, please connect to the internet");
@@ -65,27 +46,10 @@ exports.putsHttpss = function (url, data, callback) {
   // setup
   var putURL = Ti.App.Properties.getString("serverUrl") + url;
 
-  var user_data = Ti.App.Properties.getObject("data");
-  console.log("---------------------------");
-  console.log("-- PUT - START");
-  console.log("-- PUT - URL: " + putURL);
-
-  // list data
-  for (var child in data) {
-    if (data.hasOwnProperty(child)) {
-      console.log("-- PUT - DATA: " + data[child]);
-    }
-  }
-
   // online
   if (Titanium.Network.online) {
     var xhr = Ti.Network.createHTTPClient({
       onload: function (e) {
-        // debug
-        console.log("-- POST - " + url + " - START");
-        console.log("-- POST - " + url + " - STATUS: " + this.status);
-        console.log("-- PUT - " + url + " - TEXT:   " + this.responseText);
-
         // status ok
         if (this.status == "200" || this.status == "201") {
           if (checkJSON(this.responseText)) {
@@ -94,7 +58,6 @@ exports.putsHttpss = function (url, data, callback) {
             handleError(e, url, this.status, this.responseText);
           }
         }
-        console.log("-- PUT - " + url + " - END");
       },
       onerror: function (e) {
         if (checkJSON(this.responseText)) {
@@ -106,10 +69,6 @@ exports.putsHttpss = function (url, data, callback) {
       timeout: 15000,
     });
     xhr.open("PUT", putURL);
-    if (Ti.App.Properties.hasProperty("data")) {
-      console.log("-- TOKEN : " + user_data["token"]);
-      xhr.setRequestHeader("Authorization", user_data["token"]);
-    }
     xhr.send(data);
   } else {
     alerted.note("You are offline, please connect to the internet");
@@ -124,21 +83,11 @@ exports.putsHttpss = function (url, data, callback) {
 exports.gets = function (url, callback) {
   // setup
   var getURL = Ti.App.Properties.getString("serverUrl") + url;
-  var user_data = Ti.App.Properties.getObject("data");
-
-  console.log("---------------------------");
-  console.log("-- GET - START");
-  console.log("-- GET - URL: " + getURL);
 
   // online
   if (Titanium.Network.online) {
     var xhr = Ti.Network.createHTTPClient({
       onload: function (e) {
-        // debug
-        console.log("-- GET - " + url + " - START");
-        console.log("-- GET - " + url + " - STATUS: " + this.status);
-        console.log("-- GET - " + url + " - TEXT:   " + this.responseText);
-        // status ok
         if (this.status == "200") {
           if (checkJSON(this.responseText)) {
             callback(JSON.parse(this.responseText));
@@ -146,7 +95,6 @@ exports.gets = function (url, callback) {
             handleError(e, url, this.status, this.responseText);
           }
         }
-        console.log("-- GET - " + url + " - END");
       },
 
       onerror: function (e) {
@@ -161,10 +109,10 @@ exports.gets = function (url, callback) {
 
     xhr.open("GET", getURL);
 
-    if (Ti.App.Properties.hasProperty("data")) {
+    /*  if (Ti.App.Properties.hasProperty("data")) {
       console.log("-- TOKEN : " + user_data["token"]);
       xhr.setRequestHeader("Authorization", user_data["token"]);
-    }
+    } */
     xhr.send();
 
     // offline

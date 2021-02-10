@@ -2,7 +2,6 @@ exports.TakePicture = function (save, callback) {
   var camera = function () {
     Ti.Media.showCamera({
       success: function (e) {
-        console.log("success");
         if (save) {
           Ti.Media.saveToPhotoGallery(e.media, {
             success(e) {
@@ -44,18 +43,6 @@ exports.OpenGallery = function (callback) {
   Ti.Media.openPhotoGallery({
     mediaTypes: [Titanium.Media.MEDIA_TYPE_PHOTO],
     success: function (e) {
-      console.log(
-        "media.width: " +
-          e.media.width +
-          "\nmedia.height: " +
-          e.media.height +
-          "\nmedia.length: " +
-          e.media.length +
-          "\nmedia.mimeType: " +
-          e.media.mimeType +
-          "\nmedia.nativePath: " +
-          e.media.nativePath
-      );
       callback(null, e);
     },
     error: function (e) {

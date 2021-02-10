@@ -13,8 +13,8 @@
 }
 
 "ImageView": {
-	top:"2",
-	height:"60%"	
+	top:"5",
+	height:"55%"	
 }
 
 "#btn":{
