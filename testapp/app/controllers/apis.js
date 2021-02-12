@@ -7,7 +7,7 @@ var photoName;
 function getCamera() {
   api.TakePicture(true, function (error, result) {
     if (error) {
-      alert("Could not take photo");
+      console.log("Could not take photo");
       return;
     }
 
@@ -24,7 +24,7 @@ function getCamera() {
 function getGallery() {
   api.OpenGallery(false, function (error, result) {
     if (error) {
-      alert("Could not open gallery");
+      console.log("Could not open gallery");
       return;
     }
 
@@ -46,12 +46,12 @@ function getGPS() {
   ) {
     Ti.Geolocation.getCurrentPosition(function (e) {
       if (e.error) {
-        alert(e.error);
+        console.log(e.error);
       } else {
         if (e.coords.latitude && e.coords.longitude) {
           console.log(e.coords.latitude, e.coords.longitude);
         } else {
-          alert("Failed to get current position");
+          console.log("Failed to get current position");
         }
       }
     });
@@ -67,12 +67,14 @@ function getGPS() {
               if (e.coords.latitude && e.coords.longitude) {
                 console.log(e.coords.latitude, e.coords.longitude);
               } else {
-                alert("Failed to get current position");
+                console.log("Failed to get current position");
               }
             }
           });
         } else {
-          alert("To use this application you should accept GPS permissions");
+          console.log(
+            "To use this application you should accept GPS permissions"
+          );
           return;
         }
       }
@@ -115,7 +117,6 @@ function getContacts() {
         contacts();
       } else {
         console.log(e.error);
-        alert(e.error);
       }
     });
   }
@@ -123,12 +124,12 @@ function getContacts() {
   function contacts() {
     Ti.Contacts.showContacts({
       cancel: function (e) {
-        alert("cancelled");
+        console.log("cancelled");
       },
       selectedPerson: function (e) {
         var person = e.person;
         Ti.API.info(person);
-        alert("person selected is " + person.fullName);
+        console.log("person selected is " + person.fullName);
       },
     });
   }

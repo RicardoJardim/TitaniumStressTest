@@ -10,3 +10,9 @@
     font: { fontSize:20},
 }
 
+"#picker": {
+  top:"10%",
+  width:"80%",
+  height: 50,
+  backgroundColor: 'white'
+}

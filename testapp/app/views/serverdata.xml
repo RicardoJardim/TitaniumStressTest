@@ -1,7 +1,8 @@
 <Alloy>
 	<View id="serverdata">
-		<Button id="create_view" bottom= "15%" onClick="createViews">Create Views</Button>
 
+		<Button id="create_view" bottom= "18%" onClick="fetchData">FetchData</Button>
+		<Button id="create_view" bottom= "10%" onClick="createViews">Create Views</Button>
 		<Button id="create_btn" bottom= "2%" onClick="createBtn">Create Buttons</Button>
 	</View>
 </Alloy>
